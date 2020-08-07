@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     Plates plates;
-    OrderAdapter platesAdapter;
+    OrderAdapter orderAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(linearLayoutManager);
+        orderAdapter = new OrderAdapter(getApplicationContext(), platesList);
+        recyclerView.setAdapter(orderAdapter);
+        platesList = new ArrayList<>();
 
         orders = findViewById(R.id.orders);
         add = findViewById(R.id.add);
@@ -63,11 +66,10 @@ public class MainActivity extends AppCompatActivity {
 //                orders.append("(" + worth + ")" + " " +"|" + " ");
 
                 plates = new Plates(item, worth);
-                platesList = new ArrayList<>();
                 platesList.add(plates);
+                orderAdapter.setList(platesList);
 
-                platesAdapter = new OrderAdapter(getApplicationContext(), platesList);
-                recyclerView.setAdapter(platesAdapter);
+
             }
         });
 

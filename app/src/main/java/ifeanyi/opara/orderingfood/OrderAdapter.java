@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -14,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> {
 
     private Context mContext;
-    private List<Plates> platesList;
+    private List<Plates> platesList = new ArrayList<>();
 
     public OrderAdapter(Context mContext, List<Plates> platesList) {
         this.mContext = mContext;
@@ -50,5 +51,11 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
             amount = itemView.findViewById(R.id.amount);
             food = itemView.findViewById(R.id.food);
         }
+
+    }
+
+    public void setList(List<Plates> platesList1){
+        this.platesList = platesList1;
+        notifyDataSetChanged();
     }
 }
