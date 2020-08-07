@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView orders;
     private List<Plates> platesList;
     private Button add, done;
-    public  String item,worth;
+    public String item, worth;
     private boolean a = true;
 
     RecyclerView recyclerView;
@@ -62,11 +62,11 @@ public class MainActivity extends AppCompatActivity {
 //                orders.append(item);
 //                orders.append("(" + worth + ")" + " " +"|" + " ");
 
-                plates = new Plates(item,worth);
+                plates = new Plates(item, worth);
                 platesList = new ArrayList<>();
                 platesList.add(plates);
 
-                platesAdapter = new OrderAdapter(getApplicationContext(),platesList);
+                platesAdapter = new OrderAdapter(getApplicationContext(), platesList);
                 recyclerView.setAdapter(platesAdapter);
             }
         });
@@ -74,13 +74,13 @@ public class MainActivity extends AppCompatActivity {
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent  = new Intent(MainActivity.this, PlatesActivity.class);
+                Intent intent = new Intent(MainActivity.this, PlatesActivity.class);
 
-                intent.putExtra("item",orders.getText().toString().trim());
-                intent.putExtra("worth",orders.getText().toString().trim());
+                intent.putExtra("item", orders.getText().toString().trim());
+                intent.putExtra("worth", orders.getText().toString().trim());
                 startActivity(intent);
 
-                Plates plates = new Plates(item,worth);
+                Plates plates = new Plates(item, worth);
                 platesList = new ArrayList<>();
                 platesList.add(plates);
             }
