@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     Plates plates;
+    String item1 = plates.getOrder();
+    String amount1 = plates.getAmount();
     OrderAdapter orderAdapter;
 
     @Override
@@ -36,11 +39,11 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(linearLayoutManager);
+        platesList = new ArrayList<>();
         orderAdapter = new OrderAdapter(getApplicationContext(), platesList);
         recyclerView.setAdapter(orderAdapter);
-        platesList = new ArrayList<>();
 
-        orders = findViewById(R.id.orders);
+
         add = findViewById(R.id.add);
         done = findViewById(R.id.done);
 
@@ -76,15 +79,19 @@ public class MainActivity extends AppCompatActivity {
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, PlatesActivity.class);
+//                Intent intent = new Intent(MainActivity.this, PlatesActivity.class);
+//
+//                intent.putExtra("item", orders.getText().toString().trim());
+//                intent.putExtra("worth", orders.getText().toString().trim());
+//                startActivity(intent);
+//
+//                Plates plates = new Plates(item, worth);
+//                platesList = new ArrayList<>();
+//                platesList.add(plates);
 
-                intent.putExtra("item", orders.getText().toString().trim());
-                intent.putExtra("worth", orders.getText().toString().trim());
-                startActivity(intent);
 
-                Plates plates = new Plates(item, worth);
-                platesList = new ArrayList<>();
-                platesList.add(plates);
+
+                Toast.makeText(MainActivity.this, item1 + "," + amount1 + ",", Toast.LENGTH_SHORT).show();
             }
         });
 

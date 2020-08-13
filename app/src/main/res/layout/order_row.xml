@@ -33,16 +33,16 @@
             android:layout_marginStart="70dp"
             android:textSize="25sp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:id="@+id/delet1"
-            android:text="delete"
             android:layout_marginEnd="10dp"
+            android:background="@android:color/black"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:src="@drawable/delete" />
+            android:src="@drawable/close" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">OrderingFood</string>
+    <string name="worth">Worth</string>
+    <string name="item">Item</string>
+    <string name="place_your_order">Place Your Order</string>
+    <string name="add">Add</string>
+    <string name="done">Done</string>
+    <string name="cancel">Cancel</string>
 </resources>
