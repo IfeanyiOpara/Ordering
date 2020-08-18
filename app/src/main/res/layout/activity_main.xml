@@ -28,59 +28,240 @@
                 android:textStyle="bold"
                 android:textSize="32sp"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/item"
-                android:layout_above="@id/spinnerItem"
-                app:layout_constraintTop_toBottomOf="@id/place_your_order"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginTop="10dp"
-                android:id="@+id/item"
-                android:textSize="25sp"/>
-
-
-            <Spinner
-                android:id="@+id/spinnerItem"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_above="@id/worth"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/item"
-                android:background="@android:drawable/btn_dropdown"
-                android:spinnerMode="dropdown"/>
+                android:weightSum="2"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/worth"
-                app:layout_constraintTop_toBottomOf="@id/spinnerItem"
-                android:layout_marginTop="10dp"
-                android:layout_above="@id/spinnerWorth"
-                android:id="@+id/worth"
-                android:textSize="25sp"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/normal"
+                    android:orientation="vertical">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/normal_txt"
+                        android:text="Normal"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20sp"/>
 
-            <Spinner
-                android:id="@+id/spinnerWorth"
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:id="@+id/normal_view"
+                        android:layout_gravity="center_horizontal"
+                        android:visibility="visible"
+                        android:background="@color/colorPrimaryDark"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/swallow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/swallow_txt"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="@color/grey"
+                        android:text="Swallow"
+                        android:textSize="20sp"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_gravity="center_horizontal"
+                        android:id="@+id/swallow_view"
+                        android:visibility="gone"
+                        android:background="@color/colorPrimaryDark"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+<!--            NORMAL FOOD LAYOUT START-->
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_above="@id/add"
-                app:layout_constraintTop_toBottomOf="@id/worth"
                 android:layout_height="wrap_content"
-                android:background="@android:drawable/btn_dropdown"
-                android:spinnerMode="dropdown"/>
+                android:visibility="visible"
+                android:id="@+id/normal_layout"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/item"
+                    android:layout_above="@id/spinnerItem"
+                    app:layout_constraintTop_toBottomOf="@id/place_your_order"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/item"
+                    android:textSize="25sp"/>
 
 
-            <Button
+                <Spinner
+                    android:id="@+id/spinnerItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/worth"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/item"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:spinnerMode="dropdown"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/worth"
+                    app:layout_constraintTop_toBottomOf="@id/spinnerItem"
+                    android:layout_marginTop="10dp"
+                    android:layout_above="@id/spinnerWorth"
+                    android:id="@+id/worth"
+                    android:textSize="25sp"/>
+
+
+                <Spinner
+                    android:id="@+id/spinnerWorth"
+                    android:layout_width="match_parent"
+                    android:layout_above="@id/add"
+                    app:layout_constraintTop_toBottomOf="@id/worth"
+                    android:layout_height="wrap_content"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:spinnerMode="dropdown"/>
+
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add"
+                    android:id="@+id/add"
+                    android:layout_above="@id/order_recycler_view"
+                    android:layout_marginTop="20dp"
+                    android:background="@android:color/black"
+                    android:textColor="@android:color/white"
+                    android:padding="15dp"/>
+
+            </LinearLayout>
+
+<!--            NORMAL FOOD LAYOUT END-->
+
+
+
+<!--            SWALLOW FOOD LAYOUT START-->
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/add"
-                android:id="@+id/add"
-                android:layout_above="@id/order_recycler_view"
-                android:layout_marginTop="20dp"
-                android:background="@android:color/black"
-                android:textColor="@android:color/white"
-                android:padding="15dp"/>
+                android:visibility="gone"
+                android:id="@+id/swallow_layout"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/item"
+                    android:layout_above="@id/spinnerItem"
+                    app:layout_constraintTop_toBottomOf="@id/place_your_order"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/item_swallow"
+                    android:textSize="20sp"/>
+
+
+                <Spinner
+                    android:id="@+id/spinnerItemSwallow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/worth"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/item"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:spinnerMode="dropdown"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Description"
+                    android:textSize="20sp"/>
+
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/descriptionSwallow"
+                    android:inputType="textMultiLine"/>
+
+<!--                <com.google.android.material.textfield.TextInputLayout-->
+<!--                    android:id="@+id/email_username"-->
+<!--                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    app:boxStrokeColor="@color/colorPrimary"-->
+<!--                    app:boxStrokeWidthFocused="2dp"-->
+<!--                    android:paddingTop="5dp"-->
+<!--                    app:endIconMode="clear_text"-->
+<!--                    app:endIconTint="@color/colorPrimary"-->
+<!--                    app:startIconTint="@color/colorPrimary">-->
+
+<!--                    <com.google.android.material.textfield.TextInputEditText-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:inputType="textMultiLine" />-->
+
+<!--                </com.google.android.material.textfield.TextInputLayout>-->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/worth"
+                    app:layout_constraintTop_toBottomOf="@id/spinnerItem"
+                    android:layout_marginTop="10dp"
+                    android:layout_above="@id/spinnerWorth"
+                    android:id="@+id/worthSwallow"
+                    android:textSize="20sp"/>
+
+                <Spinner
+                    android:id="@+id/spinnerWorthSwallow"
+                    android:layout_width="match_parent"
+                    android:layout_above="@id/add"
+                    app:layout_constraintTop_toBottomOf="@id/worth"
+                    android:layout_height="wrap_content"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:spinnerMode="dropdown"/>
+
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add"
+                    android:id="@+id/addSwallow"
+                    android:layout_above="@id/order_recycler_view"
+                    android:layout_marginTop="20dp"
+                    android:background="@android:color/black"
+                    android:textColor="@android:color/white"
+                    android:padding="15dp"/>
+
+            </LinearLayout>
+
+<!--            SWALLOW FOOD LAYOUT END-->
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
