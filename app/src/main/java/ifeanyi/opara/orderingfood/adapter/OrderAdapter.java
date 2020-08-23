@@ -1,29 +1,28 @@
-package ifeanyi.opara.orderingfood;
+package ifeanyi.opara.orderingfood.adapter;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import ifeanyi.opara.orderingfood.model.Order;
+import ifeanyi.opara.orderingfood.R;
 
 public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> {
 
     private Context mContext;
-    private List<Plates> platesList = new ArrayList<>();
+    private List<Order> orderList = new ArrayList<>();
 
-    public OrderAdapter(Context mContext, List<Plates> platesList) {
+    public OrderAdapter(Context mContext, List<Order> orderList) {
         this.mContext = mContext;
-        this.platesList = platesList;
+        this.orderList = orderList;
     }
 
     @NonNull
@@ -36,9 +35,9 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
-        Plates plates = platesList.get(position);
-        holder.food.setText(plates.getOrder());
-        holder.amount.setText(plates.getAmount());
+        Order order = orderList.get(position);
+        holder.food.setText(order.getOrder());
+        holder.amount.setText(order.getAmount());
 
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,7 +49,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
 
     @Override
     public int getItemCount() {
-        return platesList.size();
+        return orderList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -67,14 +66,14 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
         }
 
         public void deleteItem(){
-            platesList.remove(getAdapterPosition());
+            orderList.remove(getAdapterPosition());
             notifyItemRemoved(getAdapterPosition());
         }
 
     }
 
-    public void setList(List<Plates> platesList1){
-        this.platesList = platesList1;
+    public void setList(List<Order> orderList1){
+        this.orderList = orderList1;
         notifyDataSetChanged();
     }
 }

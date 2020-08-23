@@ -2,14 +2,13 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:backgroundTint="@color/darkWhite"
     android:layout_marginBottom="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="13dp"
+        android:padding="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -17,7 +16,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/food"
+            android:id="@+id/swallow"
             android:text="Food"
             android:textSize="25sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -29,17 +28,30 @@
             android:layout_height="wrap_content"
             android:text="Amount"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@id/food"
-            android:id="@+id/amount"
+            app:layout_constraintStart_toEndOf="@id/swallow"
+            android:id="@+id/swallow_amount"
             android:layout_marginStart="70dp"
             android:textSize="25sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/swallow"
+            app:layout_constraintStart_toStartOf="parent"
+            android:maxLines="1"
+            android:id="@+id/description_swallow"
+            android:layout_marginEnd="70dp"
+            android:ellipsize="end"
+            android:text="description"/>
 
         <ImageView
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:id="@+id/delet1"
+            android:id="@+id/deletSwallow"
             android:layout_marginEnd="10dp"
+            android:backgroundTint="@color/colorPrimaryDark"
             android:visibility="visible"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:src="@drawable/remove" />

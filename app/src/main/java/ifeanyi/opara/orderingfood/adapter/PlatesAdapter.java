@@ -1,8 +1,6 @@
-package ifeanyi.opara.orderingfood;
+package ifeanyi.opara.orderingfood.adapter;
 
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,15 +10,17 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import ifeanyi.opara.orderingfood.model.Order;
+import ifeanyi.opara.orderingfood.R;
 
 public class PlatesAdapter extends RecyclerView.Adapter<PlatesAdapter.ViewHolder> {
 
     private Context mContext;
-    private List<Plates> platesList;
+    private List<Order> orderList;
 
-    public PlatesAdapter(Context mcontext, List<Plates> platesList) {
+    public PlatesAdapter(Context mcontext, List<Order> orderList) {
         this.mContext = mcontext;
-        this.platesList = platesList;
+        this.orderList = orderList;
     }
 
     @NonNull
@@ -32,9 +32,9 @@ public class PlatesAdapter extends RecyclerView.Adapter<PlatesAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Plates plates = platesList.get(position);
-        holder.orders.append(plates.getOrder());
-        holder.orders.append("(" + plates.getAmount() + ")" + " " +"|" + " ");
+        Order order = orderList.get(position);
+        holder.orders.append(order.getOrder());
+        holder.orders.append("(" + order.getAmount() + ")" + " " +"|" + " ");
 
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,7 +48,7 @@ public class PlatesAdapter extends RecyclerView.Adapter<PlatesAdapter.ViewHolder
 
     @Override
     public int getItemCount() {
-        return platesList.size();
+        return orderList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

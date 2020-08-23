@@ -1,19 +1,21 @@
-package ifeanyi.opara.orderingfood;
+package ifeanyi.opara.orderingfood.model;
 
 import android.os.Bundle;
 
-public class Plates {
+import java.io.Serializable;
+
+public class Order {
     private int id;
     private String order;
     private String amount;
 
-    public Plates(int id, String order, String amount) {
+    public Order(int id, String order, String amount) {
         this.id = id;
         this.order = order;
         this.amount = amount;
     }
 
-    public Plates(String order, String amount) {
+    public Order(String order, String amount) {
         this.order = order;
         this.amount = amount;
     }
